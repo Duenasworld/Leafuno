@@ -5,10 +5,7 @@ die beide in einer Anwendung laufen.
 
 ## Architektur
 
-Beim Start der Anwendung wird zuerst das JavaFX-Fenster geöffnet. Die
-Oberfläche startet anschließend selbst den Spring-Server (eingebetteter
-Webserver auf Port 8080) und fährt ihn beim Schließen des Fensters
-wieder herunter.
+Beim Start der Anwendung wird zuerst Spring gestartet. Anschliessend lädt JavaFX die Oberfläche und öffnet das Fenster. Beide laufen innerhalb derselben Anwendung. Beim Schliessen des Fensters wird Spring beendet.
 
 ```
 javafx:run
@@ -55,8 +52,8 @@ Spring-Server, erreichbar unter:
 ## Verwendete Technologien
 
 - Java 25
-- Spring Boot 4.1.2 (`spring-boot-starter-webmvc`, `starter-actuator`)
-- JavaFX 21.0.6 (`javafx-controls`, `javafx-fxml`)
+- Spring Boot 4.1.2 (`spring-boot-starter-webmvc`)
+- JavaFX 25.0.5 (`javafx-controls`, `javafx-fxml`)
 - Maven (Wrapper enthalten, `mvnw`)
 
 ## Dependency Injection im Überblick
