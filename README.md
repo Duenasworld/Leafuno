@@ -22,9 +22,9 @@ javafx:run
 |---|---|
 | `PlantLoveApplication` | Einstiegspunkt (`main`), startet JavaFX, `@SpringBootApplication` |
 | `FxApplication` | JavaFX-Fenster; startet/stoppt Spring, lädt die FXML-Oberfläche |
-| `MainController` | GUI-Controller der FXML-Datei, als `@Component` eine Spring-Bean |
+| `FXHauptController` | GUI-Controller der FXML-Datei, als `@Component` eine Spring-Bean |
 | `HelloService` | Beispiel-Service (`@Service`) mit Geschäftslogik |
-| `HelloController` | REST-Endpunkt (`@RestController`) für den Browser unter `localhost:8080` |
+| `WebLeseController` | REST-Endpunkt (`@RestController`) für den Browser unter `localhost:8080` |
 
 ### Aufbau der Dateien
 

@@ -4,6 +4,6 @@
 <VBox alignment="CENTER" spacing="20"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.duenasworld.plantlove.MainController">
+      fx:controller="com.duenasworld.plantlove.FXHauptController">
     <Label fx:id="welcomeLabel" text="Dies kommt aus der FXML-Datei 🌿"/>
 </VBox>
