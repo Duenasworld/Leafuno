@@ -1,81 +1,91 @@
-# PlantLove 🌱
+# PlantLove
 
-Desktop-Anwendung mit **JavaFX** (Oberfläche) und **Spring Boot** (Backend),
-die beide in einer Anwendung laufen.
+PlantLove soll dabei helfen, Zimmerpflanzen im Alltag gesund zu halten. Die App soll Pflanzen und ihre Standorte übersichtlich verwalten, den Pflegebedarf verständlich anzeigen und beim Giessen und Düngen unterstützen. Langfristig sind unter anderem Hinweise zur Standortwahl, eine Pflegehistorie, Hilfe bei Pflanzenproblemen und die gemeinsame Nutzung im Haushalt denkbar.
 
-## Architektur
+## Projektstand
 
-Beim Start der Anwendung wird zuerst Spring gestartet. Anschliessend lädt JavaFX die Oberfläche und öffnet das Fenster. Beide laufen innerhalb derselben Anwendung. Beim Schliessen des Fensters wird Spring beendet.
+Dieses Repository ist das technische Grundgerüst für die geplante Pflanzen-App und die CAS-OOP-Modularbeit. Die eigentlichen Pflanzenfunktionen sind noch nicht umgesetzt. Aktuell zeigt die JavaFX-Oberfläche eine Begrüssung aus dem `HelloService`; der Spring-Boot-Webserver antwortet unter `/` mit einer einfachen Statusmeldung.
 
-```
+Die Produktübersicht beschreibt die langfristige Vision. Die TechSpec grenzt davon den kleineren Prüfungsumfang ab. Für die erste Umsetzung sind insbesondere Pflanzen und Standorte, Licht- und Temperaturbewertungen, die Berechnung der Giessfälligkeit, lokale JSON-Dateien und eine lesende Webansicht vorgesehen. Eine Datenbank und externe Dienste gehören nicht zu diesem Prüfungsumfang.
+
+## Architektur des Grundgerüsts
+
+JavaFX und Spring Boot laufen gemeinsam in einer Anwendung. Beim Start öffnet JavaFX den Spring-Kontext mit Webserver und Services und lädt danach die FXML-Oberfläche. Beim Schliessen des JavaFX-Fensters wird Spring beendet.
+
+```text
 javafx:run
- └─ PlantLoveApplication.main()        Einstiegspunkt, startet JavaFX
-     └─ FxApplication                  Fenster-Regie
-         ├─ init():  Spring starten   Server + alle Beans hochfahren
-         ├─ start(): plant-view.fxml  Oberfläche laden (via FXMLLoader)
-         └─ stop():  Spring beenden   sauberes Herunterfahren
+ └─ PlantLoveApplication.main()   Einstiegspunkt, startet JavaFX
+     └─ FxApplication             steuert den JavaFX-Lebenszyklus
+         ├─ init()                startet Spring und dessen Beans
+         ├─ start()               lädt plant-view.fxml
+         └─ stop()                beendet Spring und den Webserver
 ```
 
-### Die Klassen im Überblick
+### Klassen im Überblick
 
-| Klasse | Rolle |
+| Klasse | Aufgabe im Grundgerüst |
 |---|---|
-| `PlantLoveApplication` | Einstiegspunkt (`main`), startet JavaFX, `@SpringBootApplication` |
-| `FxApplication` | JavaFX-Fenster; startet/stoppt Spring, lädt die FXML-Oberfläche |
-| `FXHauptController` | GUI-Controller der FXML-Datei, als `@Component` eine Spring-Bean |
-| `HelloService` | Beispiel-Service (`@Service`) mit Geschäftslogik |
-| `WebLeseController` | REST-Endpunkt (`@RestController`) für den Browser unter `localhost:8080` |
+| `PlantLoveApplication` | Einstiegspunkt (`main`), startet JavaFX und ist mit `@SpringBootApplication` markiert. |
+| `FxApplication` | Startet und beendet Spring, lädt die FXML-Oberfläche und zeigt das Fenster. |
+| `FXHauptController` | Steuert die FXML-Oberfläche und erhält den Service über Spring. |
+| `HelloService` | Beispiel-Service. Gibt derzeit eine Begrüssung zurück; später kann hier Anwendungslogik ergänzt werden. |
+| `WebLeseController` | Einfacher REST-Controller. `/` liefert derzeit eine Statusmeldung des Servers. |
 
-### Aufbau der Dateien
+### Projektstruktur
 
-- `src/main/java/com/duenasworld/plantlove/…` – Java-Klassen
-- `src/main/resources/view/plant-view.fxml` – Oberflächen-Layout
-- `pom.xml` – Maven-Konfiguration (Abhängigkeiten, Plugins)
+- `src/main/java/com/duenasworld/plantlove/` – Java-Klassen
+- `src/main/resources/view/plant-view.fxml` – Layout der JavaFX-Oberfläche
+- `src/main/resources/application.properties` – Spring-Konfiguration
+- `pom.xml` – Abhängigkeiten und Build-Plugins
+- `docs/` – Projektunterlagen und Diagramme
 
 ## Starten
 
-Über das Maven-Panel in IntelliJ:
-`PlantLove → Plugins → javafx → javafx:run`
+Voraussetzung ist die im `pom.xml` festgelegte Java-Version. Maven ist dank Maven Wrapper nicht separat erforderlich.
 
-Oder im Terminal:
+In IntelliJ über das Maven-Panel: `PlantLove → Plugins → javafx → javafx:run`.
+
+Im Terminal:
 
 ```bash
+# Windows
+mvnw.cmd javafx:run
+
+# macOS / Linux
 ./mvnw javafx:run
 ```
 
-Es öffnet sich das Desktop-Fenster. Gleichzeitig läuft der
-Spring-Server, erreichbar unter:
+Es öffnet sich das Desktop-Fenster. Gleichzeitig läuft der Spring-Server:
 
-- Browser: <http://localhost:8080>
-- Port konfigurierbar in `src/main/resources/application.properties`
+- Auf dem Entwicklungsrechner: <http://localhost:8080>
+- Der Port kann in `src/main/resources/application.properties` geändert werden.
+
+Der aktuelle Web-Endpunkt `/` ist eine Statusmeldung und noch keine Pflanzenübersicht.
 
 ## Verwendete Technologien
 
 - Java 25
 - Spring Boot 4.1.2 (`spring-boot-starter-webmvc`)
 - JavaFX 25.0.5 (`javafx-controls`, `javafx-fxml`)
-- Maven (Wrapper enthalten, `mvnw`)
+- Maven Wrapper (`mvnw`, `mvnw.cmd`)
 
-## Dependency Injection im Überblick
+## Dependency Injection
 
-Alle mit `@Service`, `@Component` oder `@RestController` annotierten
-Klassen werden von Spring verwaltet. Controller erhalten benötigte
-Services per Konstruktor – Beispiel:
+Mit `@Service`, `@Component` oder `@RestController` annotierte Klassen werden von Spring verwaltet. Benötigte Services werden über den Konstruktor übergeben. Zum Beispiel:
 
 ```java
 @Component
-public class MainController {
+public class FXHauptController {
 
     private final HelloService helloService;
 
-    public MainController(HelloService helloService) {
+    public FXHauptController(HelloService helloService) {
         this.helloService = helloService;
     }
 }
 ```
 
-Der `FXMLLoader` wird in `FxApplication` so konfiguriert, dass
-FXML-Controller ebenfalls als Spring-Beans erzeugt werden:
+Der `FXMLLoader` verwendet die Spring-Bean-Verwaltung für FXML-Controller:
 
 ```java
 loader.setControllerFactory(springContext::getBean);
@@ -83,8 +93,13 @@ loader.setControllerFactory(springContext::getBean);
 
 ## Bekannte Eigenheiten
 
-- Start **nicht** über IntelliJ „Run", sondern über `javafx:run` –
-  sonst fehlt der JavaFX-Module-Path (Fehler: „JavaFX runtime
-  components are missing").
-- Die Whitelabel-Seite im Browser bei unbekannten Pfaden ist normal
-  (Spring-Fallback, Status 404), kein Fehler.
+- Die Anwendung über `javafx:run` starten, nicht über IntelliJ «Run». Sonst fehlt der JavaFX-Module-Path und Java meldet, dass die JavaFX-Runtime-Komponenten fehlen.
+- Eine Spring-Whitelabel-Seite oder ein 404 bei nicht eingerichteten Browserpfaden ist im Grundgerüst erwartbar.
+- Der `HelloService` und der Web-Endpunkt sind Beispiele und noch keine Pflanzenverwaltung.
+
+## Projektunterlagen
+
+- [Produktvision und Projektübersicht](docs/Pflanzen-App_Projektuebersicht-Vision.pdf)
+- [Technische Anforderungen](docs/Pflanzen-App_TechnischeAnforderungen.pdf)
+- [Diagramme zur Produktvision](docs/diagramme/Produktvision/README.md)
+- [Diagramme zum technischen Dokument](<docs/diagramme/Technisches Dokument/README_Diagrammdateien.md>)

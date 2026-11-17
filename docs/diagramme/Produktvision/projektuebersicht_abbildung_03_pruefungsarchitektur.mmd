@@ -1,0 +1,17 @@
+%% Abbildung 3 der Projektübersicht: technische Prüfungsarchitektur.
+%% Farben gemäss Dokumentgestaltung: Füllung #EAF1DD, Rahmen #4F6228.
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart LR
+  FX["JavaFX-Anwendung<br/>Verwalten und ändern<br/>«Gegossen» bestätigen"]
+  WEB["HTML und JavaScript<br/>Pflanzen · Standorte<br/>heutigen Pflegebedarf ansehen"]
+  REST["Spring Boot REST-API<br/>Webserver im selben Java-Prozess<br/>GET-Endpunkte · keine Schreibzugriffe"]
+  SERVICE["BestandService<br/>Giessregel · Lichtbewertung<br/>Temperaturbewertung"]
+  REPO["Repository<br/>PflanzenRepository<br/>JsonPflanzenRepository"]
+  FILES["Lokale JSON-Dateien<br/>arten.json · bestand.json<br/>java.io.File und Ein-/Ausgabeströme"]
+  FX -->|"direkter Aufruf"| SERVICE
+  WEB -->|"HTTP GET · lesend"| REST
+  REST -->|"Aufruf"| SERVICE
+  SERVICE --> REPO
+  REPO --> FILES
+  classDef core fill:#EAF1DD,stroke:#4F6228,color:#263323,stroke-width:2px;
+  class FX,WEB,REST,SERVICE,REPO,FILES core;

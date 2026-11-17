@@ -1,0 +1,26 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart TD
+ START[Launcher → PflanzenApp → PflanzenAppKonfiguration]
+ subgraph Oberflächen
+ FX[FxHauptController und Dialoge]
+ WEB[WebLeseController und FehlerHandler]
+ end
+ SERVICE[BestandService]
+ DTO[Übergabe-Records: PflanzeDto, StandortDto, GiessHinweisDto, Eingaben]
+ subgraph Fachmodell
+ DOMAIN[Pflanze · Pflanzenart · Standort]
+ RULES[Giessregel · Lichtbewertung · Validierung]
+ end
+ subgraph Speicherung
+ REPO[PflanzenRepository]
+ JSON[JsonPflanzenRepository · JsonDatei<T> · Artenkatalog]
+ end
+ START --> FX
+ START --> WEB
+ FX --> SERVICE
+ WEB --> SERVICE
+ SERVICE --> DTO
+ SERVICE --> DOMAIN
+ SERVICE --> RULES
+ SERVICE --> REPO
+ REPO --> JSON

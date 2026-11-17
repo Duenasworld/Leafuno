@@ -1,0 +1,125 @@
+%% Bearbeitbare Rekonstruktion aus Abbildung 5 der TechSpec v0.4.
+%% Die ursprüngliche Mermaid-Quelldatei zu diesem eingebetteten Export lag nicht vor.
+%% Farbwerte orientieren sich am Dokument: Hintergrund #EAF1DD, Rahmen #4F6228.
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228","secondaryColor":"#F6F8F2","tertiaryColor":"#EAF1DD"}}}%%
+classDiagram
+    direction TB
+
+    class Pflanzenart {
+        +String name
+        +String botanischerName
+        +Licht lichtbedarf
+        +Temperaturstufe temperaturbedarf
+        +int grundintervallTage
+        +String pflegehinweis
+        +Luftfeuchtigkeitsbedarf luftfeuchtigkeitsbedarf (Soll UC12)
+    }
+
+    class Pflanze {
+        +long id
+        +String name
+        +Pflanzenart art
+        +Standort standort
+        +LocalDate letztesGiessen
+        +Path fotoPfad (Soll UC11)
+    }
+
+    class Standort {
+        +long id
+        +String name
+        +Licht licht
+        +Temperaturstufe temperatur
+        +Luftfeuchtigkeit luftfeuchtigkeit (Soll UC12)
+    }
+
+    class Giessregel {
+        +naechstesGiessen(Pflanze)
+        +istFaellig(Pflanze, heute)
+    }
+
+    class Lichtbewertung {
+        +bewerte(art, standort)
+        +liefert Bewertung
+    }
+
+    class Temperaturbewertung {
+        +bewerte(art, standort)
+        +liefert Bewertung
+    }
+
+    class Licht {
+        <<enumeration>>
+        SCHATTIG
+        HALBSCHATTIG
+        HELL
+        SONNIG
+        stufe()
+        faktor()
+    }
+
+    class Temperaturstufe {
+        <<enumeration>>
+        KUEHL
+        NORMAL
+        WARM
+        stufe()
+        faktor()
+        fuer Bedarf und Standort
+    }
+
+    class Passung {
+        <<enumeration>>
+        PASST
+        BEDINGT
+        PASST_NICHT
+        NICHT_BEWERTET
+    }
+
+    class Bewertung {
+        <<record>>
+        Passung passung
+        String begruendung
+    }
+
+    class Giessereignis {
+        <<Soll UC9>>
+        long pflanzeId
+        LocalDateTime zeitpunkt
+        String pflegeart
+    }
+
+    class Luftfeuchtigkeitsstufe {
+        <<Soll UC12>>
+        NIEDRIG
+        NORMAL
+        HOCH
+        faktor()
+    }
+
+    class Luftfeuchtigkeitsbewertung {
+        <<Soll UC12>>
+        bewerte(art, standort)
+        liefert Bewertung
+    }
+
+    Pflanze "n" --> "1" Pflanzenart : art
+    Pflanze "n" --> "1" Standort : standort
+    Pflanze "1" --> "0..*" Giessereignis : optionale Historie
+
+    Giessregel ..> Pflanze : berechnet mit Pflanze, Art und Standort
+    Lichtbewertung ..> Pflanzenart : Lichtbedarf
+    Lichtbewertung ..> Standort : Lichtverhältnis
+    Temperaturbewertung ..> Pflanzenart : Temperaturbedarf
+    Temperaturbewertung ..> Standort : Standorttemperatur
+    Luftfeuchtigkeitsbewertung ..> Pflanzenart : Soll-Bedarf
+    Luftfeuchtigkeitsbewertung ..> Standort : Soll-Wert
+
+    Lichtbewertung ..> Bewertung : Ergebnis
+    Temperaturbewertung ..> Bewertung : Ergebnis
+    Luftfeuchtigkeitsbewertung ..> Bewertung : Ergebnis (Soll UC12)
+    Pflanzenart --> Licht : Lichtbedarf
+    Pflanzenart --> Temperaturstufe : Temperaturbedarf
+    Standort --> Licht : Lichtverhältnis
+    Standort --> Temperaturstufe : Temperatur
+    Pflanzenart ..> Luftfeuchtigkeitsstufe : Bedarf (Soll UC12)
+    Standort ..> Luftfeuchtigkeitsstufe : Mess-/Pflegestufe (Soll UC12)
