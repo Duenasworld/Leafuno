@@ -1,4 +1,4 @@
-package com.duenasworld.plantlove;
+package com.duenasworld.leafuno;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +14,6 @@ public class WebLeseController {
 
     @GetMapping("/")
     public String hallo() {
-        return "PlantLove-Server läuft!";
+        return "Leafuno-Server läuft!";
     }
 }

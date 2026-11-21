@@ -1,4 +1,4 @@
-package com.duenasworld.plantlove;
+package com.duenasworld.leafuno;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +22,7 @@ public class FxApplication extends Application {
 
     @Override
     public void init() {
-        springContext = new SpringApplicationBuilder(PlantLoveApplication.class).run();
+        springContext = new SpringApplicationBuilder(LeafunoApplication.class).run();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class FxApplication extends Application {
         loader.setControllerFactory(springContext::getBean);
         Scene scene = new Scene(loader.load(), 400, 300);
         stage.setScene(scene);
-        stage.setTitle("PlantLove");
+        stage.setTitle("Leafuno");
         stage.show();
     }
     @Override

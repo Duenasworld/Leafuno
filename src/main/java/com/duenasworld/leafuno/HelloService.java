@@ -1,4 +1,4 @@
-package com.duenasworld.plantlove;
+package com.duenasworld.leafuno;
 
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,6 @@ import org.springframework.stereotype.Service;
 public class HelloService {
 
     public String gruesse() {
-        return "PlantLove läuft! 🌱 (Gruss aus Spring)";
+        return "Leafuno läuft! 🌱 (Gruss aus Spring)";
     }
 }

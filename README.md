@@ -1,6 +1,6 @@
-# PlantLove
+# Leafuno
 
-PlantLove soll dabei helfen, Zimmerpflanzen im Alltag gesund zu halten. Die App soll Pflanzen und ihre Standorte übersichtlich verwalten, den Pflegebedarf verständlich anzeigen und beim Giessen und Düngen unterstützen. Langfristig sind unter anderem Hinweise zur Standortwahl, eine Pflegehistorie, Hilfe bei Pflanzenproblemen und die gemeinsame Nutzung im Haushalt denkbar.
+Leafuno soll dabei helfen, Zimmerpflanzen im Alltag gesund zu halten. Die App soll Pflanzen und ihre Standorte übersichtlich verwalten, den Pflegebedarf verständlich anzeigen und beim Giessen und Düngen unterstützen. Langfristig sind unter anderem Hinweise zur Standortwahl, eine Pflegehistorie, Hilfe bei Pflanzenproblemen und die gemeinsame Nutzung im Haushalt denkbar.
 
 ## Projektstand
 
@@ -14,7 +14,7 @@ JavaFX und Spring Boot laufen gemeinsam in einer Anwendung. Beim Start öffnet J
 
 ```text
 javafx:run
- └─ PlantLoveApplication.main()   Einstiegspunkt, startet JavaFX
+ └─ LeafunoApplication.main()   Einstiegspunkt, startet JavaFX
      └─ FxApplication             steuert den JavaFX-Lebenszyklus
          ├─ init()                startet Spring und dessen Beans
          ├─ start()               lädt plant-view.fxml
@@ -25,7 +25,7 @@ javafx:run
 
 | Klasse | Aufgabe im Grundgerüst |
 |---|---|
-| `PlantLoveApplication` | Einstiegspunkt (`main`), startet JavaFX und ist mit `@SpringBootApplication` markiert. |
+| `LeafunoApplication` | Einstiegspunkt (`main`), startet JavaFX und ist mit `@SpringBootApplication` markiert. |
 | `FxApplication` | Startet und beendet Spring, lädt die FXML-Oberfläche und zeigt das Fenster. |
 | `FXHauptController` | Steuert die FXML-Oberfläche und erhält den Service über Spring. |
 | `HelloService` | Beispiel-Service. Gibt derzeit eine Begrüssung zurück; später kann hier Anwendungslogik ergänzt werden. |
@@ -33,7 +33,7 @@ javafx:run
 
 ### Projektstruktur
 
-- `src/main/java/com/duenasworld/plantlove/` – Java-Klassen
+- `leafuno` – Java-Klassen
 - `src/main/resources/view/plant-view.fxml` – Layout der JavaFX-Oberfläche
 - `src/main/resources/application.properties` – Spring-Konfiguration
 - `pom.xml` – Abhängigkeiten und Build-Plugins
@@ -43,7 +43,7 @@ javafx:run
 
 Voraussetzung ist die im `pom.xml` festgelegte Java-Version. Maven ist dank Maven Wrapper nicht separat erforderlich.
 
-In IntelliJ über das Maven-Panel: `PlantLove → Plugins → javafx → javafx:run`.
+In IntelliJ über das Maven-Panel: `Leafuno → Plugins → javafx → javafx:run`.
 
 Im Terminal:
 

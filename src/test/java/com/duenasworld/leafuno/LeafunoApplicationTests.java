@@ -1,10 +1,10 @@
-package com.duenasworld.plantlove;
+package com.duenasworld.leafuno;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PlantLoveApplicationTests {
+class LeafunoApplicationTests {
 
 	@Test
 	void contextLoads() {

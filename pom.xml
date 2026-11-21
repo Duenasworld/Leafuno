@@ -11,10 +11,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.duenasworld</groupId>
-    <artifactId>PlantLove</artifactId>
+    <artifactId>Leafuno</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>PlantLove</name>
-    <description>PlantLove</description>
+    <name>Leafuno</name>
+    <description>Leafuno</description>
     <url/>
 
     <licenses>
@@ -80,7 +80,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.duenasworld.plantlove.PlantLoveApplication</mainClass>
+                            <mainClass>com.duenasworld.leafuno.LeafunoApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

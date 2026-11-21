@@ -1,4 +1,4 @@
-package com.duenasworld.plantlove;
+package com.duenasworld.leafuno;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
