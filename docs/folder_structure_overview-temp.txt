@@ -1,0 +1,70 @@
+Das Repository bleibt für die Prüfung ein einzelnes Maven-Projekt. JavaFX und Spring Boot laufen im selben Prozess. JavaFX und der lesende Web-Endpunkt rufen denselben `InventoryService` auf. Dadurch ist die Architektur für zwei Java-Einsteigende überschaubar, aber die Grenzen zwischen Oberfläche, Anwendungslogik, Fachmodell und Speicherung sind sichtbar.
+
+Die Paketbasis `com.duenasworld.leafuno` übernimmt das bereits vorhandene Grundgerüst. Code-Bezeichner (Packages, Klassen, Methoden, Felder und JSON-Feldnamen) werden Englisch geschrieben. Sichtbare Texte in JavaFX und im Browser bleiben Deutsch.
+
+Leafuno/
+├─ README.md
+├─ pom.xml
+├─ mvnw, mvnw.cmd
+├─ docs/
+│  ├─ vision/
+│  ├─ technical-spec/
+│  └─ diagrams/
+├─ src/main/java/com/duenasworld/leafuno/
+│  ├─ LeafunoApplication.java
+│  ├─ app/
+│  │  └─ FxApplication.java
+│  ├─ presentation/
+│  │  ├─ fx/
+│  │  │  ├─ FxMainController.java
+│  │  │  └─ dialog/PlantDialog.java, LocationDialog.java
+│  │  └─ web/
+│  │     ├─ PlantReadController.java
+│  │     ├─ dto/PlantDto.java, WateringHintDto.java
+│  │     └─ error/WebErrorHandler.java, ErrorDto.java
+│  ├─ application/
+│  │  ├─ InventoryService.java
+│  │  ├─ dto/PlantViewDto.java, LocationViewDto.java
+│  │  ├─ input/CreatePlantInput.java, UpdatePlantInput.java
+│  │  └─ port/PlantRepository.java
+│  ├─ domain/
+│  │  ├─ model/Plant.java, PlantSpecies.java, Location.java
+│  │  ├─ model/LightLevel.java, TemperatureLevel.java
+│  │  ├─ rules/WateringRule.java, LightAssessment.java
+│  │  ├─ rules/TemperatureAssessment.java
+│  │  ├─ validation/
+│  │  └─ exception/
+│  └─ infrastructure/persistence/json/
+│     ├─ JsonPlantRepository.java
+│     └─ JsonFileStore.java
+├─ src/main/resources/
+│  ├─ application.properties
+│  ├─ view/fx/plant-view.fxml
+│  ├─ static/
+│  │  ├─ index.html
+│  │  ├─ css/style.css
+│  │  └─ js/app.js
+│  └─ data/plant-species-seed.json
+└─ src/test/java/com/duenasworld/leafuno/
+   ├─ application/
+   ├─ domain/
+   ├─ infrastructure/persistence/json/
+   └─ presentation/web/
+```
+
+## Zuständigkeiten
+
+- `presentation/fx` enthält JavaFX-Controller und Dialoge. Controller nehmen Eingaben entgegen und zeigen Ergebnisse; sie enthalten keine Fachregeln.
+- `presentation/web` enthält die lesende HTTP-Schnittstelle, Web-DTOs und die Übersetzung technischer Fehler in HTTP-Antworten. Die HTML-, CSS- und JavaScript-Dateien liegen unter `resources/static`.
+- `application` enthält Anwendungsfälle und den gemeinsamen `InventoryService`. Sowohl JavaFX als auch der Web-Endpunkt greifen über diesen Dienst auf Funktionen zu. `PlantRepository` beschreibt den benötigten Speicherzugriff.
+- `domain` enthält Pflanzen, Arten, Standorte, Regeln, Bewertungen, Validierung und fachliche Ausnahmen. Dieses Paket hängt nicht von JavaFX, Spring Boot oder JSON ab.
+- `infrastructure/persistence/json` implementiert `PlantRepository` mit JSON-Dateien. Die vorbefüllte Artenliste kann als Startvorlage unter `resources/data` liegen. Die veränderlichen `arten.json`- und `bestand.json`-Dateien werden im Benutzerverzeichnis gespeichert, nicht im Repository.
+- `app` enthält den bestehenden Einstieg und verbindet den Lebenszyklus von JavaFX und Spring Boot.
+
+## Ablauf und spätere Entwicklung
+
+Für den Prüfungsumfang genügt ein modular aufgebautes Maven-Projekt. Die Weboberfläche bleibt lesend; Änderungen erfolgen in JavaFX. Der Browser-Endpunkt ruft denselben `InventoryService` wie JavaFX auf. Fachlogik wird deshalb nicht doppelt implementiert.
+
+Ein späterer Wechsel der Speicherung kann durch eine weitere Implementierung von `PlantRepository` erfolgen. Falls Webserver und Desktop-App später unabhängig voneinander betrieben werden sollen, kann man die Module dann trennen. Diese Aufteilung ist keine Voraussetzung für die Modularbeit.
+
+Die vorgeschlagene Struktur ist ein Zielbild für den Ausbau. Das aktuelle Grundgerüst enthält erst `LeafunoApplication`, `FxApplication`, `FXHauptController`, `HelloService` und `WebLeseController`; die weiteren Packages und Klassen werden schrittweise ergänzt. `HelloService` ist derzeit ein Beispiel und wird bei der Umsetzung durch die fachlichen Anwendungsdienste ersetzt.

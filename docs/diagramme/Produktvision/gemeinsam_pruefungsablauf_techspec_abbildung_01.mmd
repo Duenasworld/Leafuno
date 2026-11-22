@@ -1,7 +1,0 @@
-%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
-flowchart LR
- A[Pflanze aus lokalem Katalog wählen] --> B[Gewählte Pflanze einem Standort zuordnen und letztes Giessdatum manuell erfassen]
- B --> C[In JavaFX Licht- und Temperaturbewertung sowie nächstes Giessdatum prüfen]
- C --> D[Am Handy Heute giessen ansehen: fällige Pflanzen, nur lesend]
- D --> E[In JavaFX Gegossen bestätigen: Datum auf heute setzen und automatisch als JSON speichern]
- E --> F[Web neu laden: Pflanze nicht mehr fällig; App neu starten: Daten weiterhin vorhanden]

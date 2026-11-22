@@ -1,4 +1,4 @@
-package com.duenasworld.leafuno;
+package com.duenasworld.leafuno.application;
 
 import org.springframework.stereotype.Service;
 

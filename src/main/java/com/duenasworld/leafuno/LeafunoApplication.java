@@ -1,5 +1,6 @@
 package com.duenasworld.leafuno;
 
+import com.duenasworld.leafuno.app.FxApplication;
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,47 +1,63 @@
 # Leafuno
 
-Leafuno soll dabei helfen, Zimmerpflanzen im Alltag gesund zu halten. Die App soll Pflanzen und ihre Standorte übersichtlich verwalten, den Pflegebedarf verständlich anzeigen und beim Giessen und Düngen unterstützen. Langfristig sind unter anderem Hinweise zur Standortwahl, eine Pflegehistorie, Hilfe bei Pflanzenproblemen und die gemeinsame Nutzung im Haushalt denkbar.
+Leafuno ist eine geplante Anwendung zur Pflege von Zimmerpflanzen. Sie soll Pflanzen und Standorte verwalten, den Pflegebedarf verständlich anzeigen und beim Giessen und Düngen unterstützen. Für die Zukunft sind unter anderem eine Pflegehistorie, Hinweise zur Standortwahl, Unterstützung bei Pflanzenproblemen und die gemeinsame Nutzung im Haushalt vorgesehen. Details der Produktvision können unter docs eingesehen werden.
 
 ## Projektstand
 
-Dieses Repository ist das technische Grundgerüst für die geplante Pflanzen-App und die CAS-OOP-Modularbeit. Die eigentlichen Pflanzenfunktionen sind noch nicht umgesetzt. Aktuell zeigt die JavaFX-Oberfläche eine Begrüssung aus dem `HelloService`; der Spring-Boot-Webserver antwortet unter `/` mit einer einfachen Statusmeldung.
+Dieses Repository enthält das technische Grundgerüst für die geplante Anwendung und die CAS-OOP-Modularbeit. Die eigentlichen Pflanzenfunktionen sind noch nicht umgesetzt. Die JavaFX-Oberfläche zeigt derzeit eine Begrüssung des `HelloService`. Der Spring-Boot-Endpunkt `GET /` antwortet mit einer einfachen Statusmeldung.
 
-Die Produktübersicht beschreibt die langfristige Vision. Die TechSpec grenzt davon den kleineren Prüfungsumfang ab. Für die erste Umsetzung sind insbesondere Pflanzen und Standorte, Licht- und Temperaturbewertungen, die Berechnung der Giessfälligkeit, lokale JSON-Dateien und eine lesende Webansicht vorgesehen. Eine Datenbank und externe Dienste gehören nicht zu diesem Prüfungsumfang.
+Die Projektübersicht beschreibt die langfristige Produktvision. Die technische Spezifikation grenzt davon den kleineren Prüfungsumfang ab. Für die Modularbeit sind Pflanzen- und Standortverwaltung, Licht- und Temperaturbewertungen, die Berechnung der Giessfälligkeit, lokale JSON-Dateien sowie eine lesende Webansicht vorgesehen. Eine Datenbank und externe Dienste gehören nicht zum Prüfungsumfang.
 
 ## Architektur des Grundgerüsts
 
-JavaFX und Spring Boot laufen gemeinsam in einer Anwendung. Beim Start öffnet JavaFX den Spring-Kontext mit Webserver und Services und lädt danach die FXML-Oberfläche. Beim Schliessen des JavaFX-Fensters wird Spring beendet.
+JavaFX und Spring Boot laufen gemeinsam in einem Java-Prozess. Der Start erfolgt über `javafx:run`:
 
 ```text
-javafx:run
- └─ LeafunoApplication.main()   Einstiegspunkt, startet JavaFX
-     └─ FxApplication             steuert den JavaFX-Lebenszyklus
-         ├─ init()                startet Spring und dessen Beans
-         ├─ start()               lädt plant-view.fxml
-         └─ stop()                beendet Spring und den Webserver
+LeafunoApplication.main()   Einstiegspunkt; startet JavaFX
+└─ FxApplication
+   ├─ init()                 startet Spring und dessen Beans
+   ├─ start()                lädt plant-view.fxml und zeigt das Fenster
+   └─ stop()                 schliesst den Spring-Kontext und Webserver
 ```
 
 ### Klassen im Überblick
 
 | Klasse | Aufgabe im Grundgerüst |
 |---|---|
-| `LeafunoApplication` | Einstiegspunkt (`main`), startet JavaFX und ist mit `@SpringBootApplication` markiert. |
-| `FxApplication` | Startet und beendet Spring, lädt die FXML-Oberfläche und zeigt das Fenster. |
-| `FXHauptController` | Steuert die FXML-Oberfläche und erhält den Service über Spring. |
-| `HelloService` | Beispiel-Service. Gibt derzeit eine Begrüssung zurück; später kann hier Anwendungslogik ergänzt werden. |
-| `WebLeseController` | Einfacher REST-Controller. `/` liefert derzeit eine Statusmeldung des Servers. |
+| `LeafunoApplication` | Einstiegspunkt mit `main`; startet JavaFX und trägt `@SpringBootApplication`. |
+| `FxApplication` | Steuert den JavaFX-Lebenszyklus, startet und beendet Spring und lädt die FXML-Oberfläche. |
+| `FxMainController` | Verbindet die FXML-Oberfläche mit dem `HelloService`. |
+| `HelloService` | Beispiel-Service; gibt derzeit eine Begrüssung zurück. |
+| `WebLeseController` | Vorläufiger REST-Controller. `GET /` liefert momentan eine Statusmeldung; die lesenden Pflanzen-Endpunkte sind noch nicht umgesetzt. |
+| `JsonPlantRepository`, `JsonFileStore` | Vorbereitete Klassen für die JSON-Speicherung; die vollständigen Pflanzenabläufe sind noch nicht implementiert. |
 
 ### Projektstruktur
 
-- `leafuno` – Java-Klassen
-- `src/main/resources/view/plant-view.fxml` – Layout der JavaFX-Oberfläche
-- `src/main/resources/application.properties` – Spring-Konfiguration
-- `pom.xml` – Abhängigkeiten und Build-Plugins
-- `docs/` – Projektunterlagen und Diagramme
+```text
+src/main/java/com/duenasworld/leafuno/
+├─ LeafunoApplication.java
+├─ app/                         JavaFX-Lebenszyklus
+├─ application/                 Anwendungsdienste
+├─ domain/                      Fachmodell, Regeln, Validierung, Ausnahmen
+├─ infrastructure/persistence/json/  JSON-Speicherung
+└─ presentation/
+   ├─ fx/                       JavaFX-Oberfläche
+   └─ web/                      Web-Controller, DTOs und Fehlerbehandlung
+
+src/main/resources/
+├─ data/plant-species-seed.json
+├─ static/                      HTML, CSS und JavaScript
+├─ view/fx/plant-view.fxml
+└─ application.properties
+
+docs/                           Projektunterlagen und Diagramme
+```
+
+Die Web-Controller-Klasse heisst im aktuellen Grundgerüst noch `WebLeseController`. In der technischen Zielstruktur ist der englische Name `PlantReadController` vorgesehen.
 
 ## Starten
 
-Voraussetzung ist die im `pom.xml` festgelegte Java-Version. Maven ist dank Maven Wrapper nicht separat erforderlich.
+Voraussetzung ist die im `pom.xml` festgelegte Java-Version. Der Maven Wrapper ist enthalten; Maven muss nicht separat installiert werden.
 
 In IntelliJ über das Maven-Panel: `Leafuno → Plugins → javafx → javafx:run`.
 
@@ -55,12 +71,12 @@ mvnw.cmd javafx:run
 ./mvnw javafx:run
 ```
 
-Es öffnet sich das Desktop-Fenster. Gleichzeitig läuft der Spring-Server:
+Es öffnet sich das Desktop-Fenster. Gleichzeitig startet der Spring-Webserver:
 
 - Auf dem Entwicklungsrechner: <http://localhost:8080>
 - Der Port kann in `src/main/resources/application.properties` geändert werden.
 
-Der aktuelle Web-Endpunkt `/` ist eine Statusmeldung und noch keine Pflanzenübersicht.
+Der aktuelle Endpunkt `/` liefert eine Statusmeldung und noch keine Pflanzenübersicht.
 
 ## Verwendete Technologien
 
@@ -71,21 +87,21 @@ Der aktuelle Web-Endpunkt `/` ist eine Statusmeldung und noch keine Pflanzenübe
 
 ## Dependency Injection
 
-Mit `@Service`, `@Component` oder `@RestController` annotierte Klassen werden von Spring verwaltet. Benötigte Services werden über den Konstruktor übergeben. Zum Beispiel:
+Mit `@Service`, `@Component` oder `@RestController` annotierte Klassen werden von Spring verwaltet. Abhängigkeiten werden über den Konstruktor übergeben. Im Grundgerüst erhält `FxMainController` so den `HelloService`:
 
 ```java
 @Component
-public class FXHauptController {
+public class FxMainController {
 
     private final HelloService helloService;
 
-    public FXHauptController(HelloService helloService) {
+    public FxMainController(HelloService helloService) {
         this.helloService = helloService;
     }
 }
 ```
 
-Der `FXMLLoader` verwendet die Spring-Bean-Verwaltung für FXML-Controller:
+Der `FXMLLoader` verwendet Spring zur Erzeugung des FXML-Controllers:
 
 ```java
 loader.setControllerFactory(springContext::getBean);
@@ -93,13 +109,13 @@ loader.setControllerFactory(springContext::getBean);
 
 ## Bekannte Eigenheiten
 
-- Die Anwendung über `javafx:run` starten, nicht über IntelliJ «Run». Sonst fehlt der JavaFX-Module-Path und Java meldet, dass die JavaFX-Runtime-Komponenten fehlen.
-- Eine Spring-Whitelabel-Seite oder ein 404 bei nicht eingerichteten Browserpfaden ist im Grundgerüst erwartbar.
-- Der `HelloService` und der Web-Endpunkt sind Beispiele und noch keine Pflanzenverwaltung.
+- Die Anwendung über `javafx:run` starten, nicht über IntelliJ «Run». Sonst kann der JavaFX-Module-Path fehlen.
+- Die Startseite `/` zeigt derzeit eine Statusmeldung. Die Pflanzenübersicht und lesenden REST-Endpunkte werden später ergänzt.
+- Der `HelloService` dient als Beispiel und enthält noch keine Pflanzenlogik.
 
 ## Projektunterlagen
 
-- [Produktvision und Projektübersicht](docs/Pflanzen-App_Projektuebersicht-Vision.pdf)
-- [Technische Anforderungen](docs/Pflanzen-App_TechnischeAnforderungen.pdf)
+- [Leafuno – Produktvision und Projektübersicht](docs/Pflanzen-App_Projektuebersicht-Vision.pdf)
+- [Leafuno – Technische Anforderungen](docs/Pflanzen-App_TechnischeAnforderungen.pdf)
 - [Diagramme zur Produktvision](docs/diagramme/Produktvision/README.md)
 - [Diagramme zum technischen Dokument](<docs/diagramme/Technisches Dokument/README_Diagrammdateien.md>)
