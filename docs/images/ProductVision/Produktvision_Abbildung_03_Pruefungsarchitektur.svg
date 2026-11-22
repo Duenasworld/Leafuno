@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1050" viewBox="0 0 1700 1050"><rect width="100%" height="100%" fill="white"/><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#4F6228"/></marker></defs>
+<text x="850.0" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="33" font-weight="700" fill="#263323" font-style="normal">Leafuno: Prüfungsarchitektur mit lesendem Webzugriff</text>
+<rect x="45" y="190" width="450" height="210" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="270.0" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#263323" font-style="normal">JavaFX-Anwendung</text>
+<text x="270.0" y="254" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">FxMainController</text>
+<text x="270.0" y="280" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">Pflanzen und Standorte verwalten</text>
+<text x="270.0" y="306" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">Giessen bestätigen</text>
+<rect x="45" y="555" width="450" height="210" rx="15" fill="#F6F8F2" stroke="#4F6228" stroke-width="3"/>
+<text x="270.0" y="587" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#263323" font-style="normal">HTML und JavaScript</text>
+<text x="270.0" y="619" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">Pflanzen und Standorte ansehen</text>
+<text x="270.0" y="645" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">heutigen Pflegebedarf anzeigen</text>
+<rect x="640" y="360" width="500" height="230" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="890.0" y="392" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#263323" font-style="normal">InventoryService</text>
+<text x="890.0" y="424" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">Fachlogik und Validierung</text>
+<text x="890.0" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">Giessfälligkeit und Bewertungen</text>
+<text x="890.0" y="476" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">gemeinsame Anwendungslogik</text>
+<rect x="1230" y="555" width="420" height="210" rx="15" fill="#F6F8F2" stroke="#4F6228" stroke-width="3"/>
+<text x="1440.0" y="587" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">Spring-Boot-REST-API</text>
+<text x="1440.0" y="619" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">PlantReadController</text>
+<text x="1440.0" y="645" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">GET-Endpunkte · nur lesend</text>
+<rect x="1280" y="190" width="350" height="210" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1455.0" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">PlantRepository</text>
+<text x="1455.0" y="254" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">JsonPlantRepository</text>
+<rect x="1280" y="820" width="350" height="150" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1455.0" y="852" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#263323" font-style="normal">Lokale JSON-Dateien</text>
+<text x="1455.0" y="884" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">arten.json · bestand.json</text>
+<line x1="495" y1="280" x2="640" y2="425" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="575" y="335" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">direkter Java-Aufruf</text>
+<line x1="495" y1="660" x2="1230" y2="660" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="860" y="635" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">HTTP GET</text>
+<line x1="1230" y1="575" x2="1140" y2="525" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1205" y="510" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">ruft lesend auf</text>
+<line x1="1140" y1="420" x2="1280" y2="320" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1205" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">Repository-Port</text>
+<path d="M1630 300 H1670 V790 H1455 V820" fill="none" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1540" y="810" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">lesen / speichern</text>
+<rect x="410" y="850" width="730" height="110" rx="17" fill="#F6F8F2" stroke="#4F6228" stroke-width="2.5"/>
+<text x="775" y="892" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Ein Startbefehl · Web nur lesend · keine Datenbank im Prüfungsumfang</text>
+<text x="775" y="927" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#55654A" font-style="normal">JavaFX und REST teilen denselben Dienst; Daten bleiben lokal in JSON-Dateien.</text>
+</svg>

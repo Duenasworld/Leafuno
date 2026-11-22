@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040"><rect width="100%" height="100%" fill="white"/><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#4F6228"/></marker></defs>
+<text x="800.0" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="33" font-weight="700" fill="#263323" font-style="normal">Leafuno Prüfungsarchitektur: Klassen und Abhängigkeiten</text>
+<rect x="420" y="90" width="760" height="120" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="800.0" y="122" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#263323" font-style="normal">Start und Konfiguration</text>
+<text x="800.0" y="154" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">LeafunoApplication · FxApplication</text>
+<rect x="65" y="265" width="680" height="165" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="405.0" y="297" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">JavaFX-Oberfläche</text>
+<text x="405.0" y="329" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">FxMainController · LocationDialog · PlantDialog</text>
+<rect x="855" y="265" width="680" height="165" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1195.0" y="297" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">Web / REST</text>
+<text x="1195.0" y="329" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">PlantReadController · WebErrorHandler · ErrorDto</text>
+<rect x="420" y="500" width="760" height="160" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="800.0" y="532" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#263323" font-style="normal">Anwendungsdienst</text>
+<text x="800.0" y="564" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">InventoryService · Anwendungsfälle</text>
+<text x="800.0" y="589" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">Eingaben und Ausgabe-DTOs</text>
+<rect x="55" y="740" width="720" height="235" rx="18" fill="#F6F8F2" stroke="#4F6228" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="415" y="780" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#55654A" font-style="normal">Fachmodell · reines Java</text>
+<rect x="85" y="805" width="660" height="135" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="415.0" y="837" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">Fachobjekte und Regeln</text>
+<text x="415.0" y="869" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">Plant · PlantSpecies · Location</text>
+<text x="415.0" y="892" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">WateringRule · LightAssessment · TemperatureAssessment</text>
+<rect x="825" y="740" width="720" height="235" rx="18" fill="#F6F8F2" stroke="#4F6228" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="1185" y="780" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#55654A" font-style="normal">Repository und File-I/O</text>
+<rect x="850" y="805" width="310" height="135" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1005.0" y="837" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Repository-Port</text>
+<text x="1005.0" y="869" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">PlantRepository · application.port</text>
+<rect x="1190" y="805" width="320" height="135" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1350.0" y="837" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">JSON-Implementierung</text>
+<text x="1350.0" y="869" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">JsonPlantRepository · JsonFileStore</text>
+<line x1="800" y1="210" x2="405" y2="265" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<line x1="800" y1="210" x2="1195" y2="265" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<line x1="405" y1="430" x2="650" y2="500" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="530" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">ruft auf</text>
+<line x1="1195" y1="430" x2="950" y2="500" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1075" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">ruft auf</text>
+<line x1="800" y1="660" x2="700" y2="805" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="610" y="720" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">nutzt Fachregeln</text>
+<line x1="800" y1="660" x2="1005" y2="805" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="910" y="700" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">nutzt</text>
+<line x1="1160" y1="870" x2="1190" y2="870" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="800" y="1015" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#55654A" font-style="normal">Fachmodell und Speicherung hängen nicht von den Oberflächen ab.</text>
+</svg>

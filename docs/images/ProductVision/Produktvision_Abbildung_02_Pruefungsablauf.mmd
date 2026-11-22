@@ -1,0 +1,9 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart LR
+  A["Pflanze aus lokalem Artenkatalog wählen"] --> B["Pflanzenexemplar einem Standort zuordnen"]
+  B --> C["In JavaFX prüfen: Licht, Temperatur und Giessfälligkeit"]
+  C --> D["Am Handy ansehen: Webansicht nur lesend"]
+  D --> E["Giessen in JavaFX bestätigen"]
+  E --> F["Webansicht neu laden; aktualisierter Status"]
+  classDef box fill:#EAF1DD,stroke:#4F6228,color:#263323,stroke-width:2px
+  class A,B,C,D,E,F box

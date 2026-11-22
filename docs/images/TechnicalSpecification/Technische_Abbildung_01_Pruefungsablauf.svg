@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1574" height="457" viewBox="0 0 1574 457"><rect width="100%" height="100%" fill="white"/><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#4F6228"/></marker></defs>
+<text x="787.0" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="33" font-weight="700" fill="#263323" font-style="normal">Leafuno – Prüfungsablauf: Pflanze zuordnen und Giessbedarf prüfen</text>
+<rect x="25" y="118" width="242" height="232" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="146.0" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Pflanze wählen</text>
+<text x="146.0" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">aus lokalem Katalog</text>
+<text x="146.0" y="206" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">z. B. Monstera</text>
+<rect x="281" y="118" width="242" height="232" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="402.0" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Standort zuordnen</text>
+<text x="402.0" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">letztes Giessdatum</text>
+<text x="402.0" y="206" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">manuell erfassen</text>
+<rect x="537" y="118" width="242" height="232" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="658.0" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">In JavaFX prüfen</text>
+<text x="658.0" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Licht- und Temperatur-</text>
+<text x="658.0" y="206" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">bewertung, nächstes Giessen</text>
+<rect x="793" y="118" width="242" height="232" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="914.0" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Am Handy ansehen</text>
+<text x="914.0" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">«Heute giessen»</text>
+<text x="914.0" y="206" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Webansicht nur lesend</text>
+<rect x="1049" y="118" width="242" height="232" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1170.0" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Giessen bestätigen</text>
+<text x="1170.0" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">in JavaFX «Gegossen»</text>
+<text x="1170.0" y="206" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Datum wird gespeichert</text>
+<rect x="1305" y="118" width="242" height="232" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1426.0" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Web neu laden</text>
+<text x="1426.0" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Pflanze nicht mehr fällig</text>
+<text x="1426.0" y="206" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Daten bleiben beim Neustart</text>
+<rect x="78" y="372" width="1418" height="60" rx="16" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="787" y="409" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#263323" font-style="normal">Katalogpflanze wählen  ·  Standort zuordnen  ·  Giessen in JavaFX bestätigen  ·  Änderungen lokal speichern</text>
+</svg>

@@ -1,0 +1,19 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart LR
+  subgraph Process["Ein Startbefehl · ein Java-Prozess"]
+    FX["JavaFX-Anwendung<br/>FxMainController<br/>Pflanzen und Standorte verwalten<br/>Giessen bestätigen"]
+    UI["HTML und JavaScript<br/>Pflanzen und heutigen Pflegebedarf ansehen"]
+    API["Spring-Boot-REST-API<br/>PlantReadController<br/>GET-Endpunkte · nur lesend"]
+    Service["InventoryService<br/>Fachlogik und Validierung"]
+    Repo["PlantRepository<br/>JsonPlantRepository"]
+    Files["Lokale JSON-Dateien<br/>arten.json · bestand.json"]
+    FX -->|"direkter Java-Aufruf"| Service
+    UI -->|"HTTP GET"| API
+    API -->|"ruft lesend auf"| Service
+    Service --> Repo
+    Repo --> Files
+  end
+  Phone["Browser / Handy<br/>im gleichen WLAN"] --> UI
+  classDef box fill:#EAF1DD,stroke:#4F6228,color:#263323,stroke-width:2px
+  classDef pale fill:#F6F8F2,stroke:#4F6228,color:#263323,stroke-width:2px
+  class FX,UI,API,Service,Repo,Files,Phone box

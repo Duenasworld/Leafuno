@@ -1,0 +1,18 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart TD
+  Start["LeafunoApplication · FxApplication<br/>Start und Konfiguration"]
+  FX["JavaFX-Oberfläche<br/>FxMainController · LocationDialog · PlantDialog"]
+  Web["Web / REST<br/>PlantReadController · WebErrorHandler · ErrorDto"]
+  App["Anwendungsdienst<br/>InventoryService · Use-Cases · DTOs"]
+  Domain["Fachmodell · reines Java<br/>Plant · PlantSpecies · Location<br/>WateringRule · LightAssessment · TemperatureAssessment"]
+  Port["Repository-Port<br/>PlantRepository · application.port"]
+  Impl["JSON-Implementierung<br/>JsonPlantRepository · JsonFileStore"]
+  Start --> FX
+  Start --> Web
+  FX --> App
+  Web --> App
+  App --> Domain
+  App --> Port
+  Port --> Impl
+  classDef box fill:#EAF1DD,stroke:#4F6228,color:#263323,stroke-width:2px
+  class Start,FX,Web,App,Domain,Port,Impl box

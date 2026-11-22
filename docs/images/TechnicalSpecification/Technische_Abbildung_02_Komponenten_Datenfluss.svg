@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><rect width="100%" height="100%" fill="white"/><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#4F6228"/></marker></defs>
+<text x="800.0" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="33" font-weight="700" fill="#263323" font-style="normal">Leafuno im Prüfungsumfang: Komponenten und Datenfluss</text>
+<rect x="345" y="105" width="1225" height="850" rx="22" fill="#F6F8F2" stroke="#4F6228" stroke-width="4"/>
+<text x="380" y="145" text-anchor="start" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#55654A" font-style="normal">Leafuno auf dem Computer · ein Java-Prozess</text>
+<rect x="780" y="175" width="735" height="275" rx="18" fill="#FAFBF8" stroke="#4F6228" stroke-width="3"/>
+<text x="815" y="210" text-anchor="start" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#55654A" font-style="normal">Eingebetteter Spring-Boot-Webserver</text>
+<rect x="820" y="245" width="300" height="155" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="970.0" y="277" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">Statische Webdateien</text>
+<text x="970.0" y="309" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">index.html</text>
+<text x="970.0" y="334" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">app.js · style.css</text>
+<rect x="1170" y="245" width="300" height="155" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1320.0" y="277" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">PlantReadController</text>
+<text x="1320.0" y="309" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">REST nur lesend</text>
+<text x="1320.0" y="332" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">GET /api/...</text>
+<text x="1320.0" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">Antwort als JSON</text>
+<rect x="405" y="505" width="340" height="160" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="575.0" y="537" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">JavaFX-Oberfläche</text>
+<text x="575.0" y="569" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">FxMainController</text>
+<text x="575.0" y="593" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Pflanzen und Standorte</text>
+<text x="575.0" y="617" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">«Gegossen» bestätigen</text>
+<rect x="930" y="505" width="450" height="175" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1155.0" y="537" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#263323" font-style="normal">InventoryService</text>
+<text x="1155.0" y="569" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Validiert und berechnet</text>
+<text x="1155.0" y="593" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Giessfälligkeit, Licht- und</text>
+<text x="1155.0" y="617" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">Temperaturbewertung</text>
+<text x="1155.0" y="641" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">liest / ändert den Bestand</text>
+<rect x="405" y="770" width="330" height="145" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="570.0" y="802" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">Fachmodell</text>
+<text x="570.0" y="834" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">Plant · PlantSpecies · Location</text>
+<text x="570.0" y="857" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">Bewertungen · WateringRule</text>
+<rect x="830" y="770" width="310" height="145" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="985.0" y="802" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">Repository</text>
+<text x="985.0" y="834" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">PlantRepository</text>
+<text x="985.0" y="858" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">JsonPlantRepository</text>
+<rect x="1200" y="770" width="320" height="145" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="1360.0" y="802" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">Lokale JSON-Dateien</text>
+<text x="1360.0" y="834" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">arten.json</text>
+<text x="1360.0" y="859" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">bestand.json</text>
+<rect x="25" y="205" width="265" height="250" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
+<text x="157.5" y="237" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">Browser / Handy</text>
+<text x="157.5" y="269" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">Webansicht im WLAN</text>
+<text x="157.5" y="294" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">Pflanzen und Giessbedarf</text>
+<text x="157.5" y="319" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">nur lesend</text>
+<line x1="290" y1="320" x2="820" y2="320" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="550" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">Webseite laden</text>
+<path d="M290 430 H1260 V400" fill="none" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="495" y="410" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">HTTP GET / JSON-Antwort</text>
+<line x1="745" y1="585" x2="930" y2="585" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="838" y="560" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">Java-Aufruf</text>
+<path d="M1320 400 V505" fill="none" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1395" y="480" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">ruft lesend auf</text>
+<line x1="950" y1="680" x2="700" y2="770" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<line x1="985" y1="680" x2="985" y2="770" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1070" y="730" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">lesen / speichern</text>
+<text x="810" y="705" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">nutzt Fachregeln</text>
+<line x1="1160" y1="845" x2="1200" y2="845" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+</svg>

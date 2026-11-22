@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1510" height="1186" viewBox="0 0 1510 1186"><rect width="100%" height="100%" fill="white"/><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#4F6228"/></marker></defs>
+<text x="755.0" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="33" font-weight="700" fill="#263323" font-style="normal">Leafuno Fachmodell: Klassen, Regeln und Erweiterungspunkte</text>
+<rect x="35" y="80" width="450" height="230" rx="4" fill="#EAF1DD" stroke="#4F6228" stroke-width="2"/>
+<line x1="35" y1="116" x2="485" y2="116" stroke="#4F6228" stroke-width="1"/>
+<text x="260.0" y="106" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">PlantSpecies</text>
+<text x="48" y="139" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">name: String</text>
+<text x="48" y="161" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">botanicalName: String</text>
+<text x="48" y="183" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">lightRequirement: LightLevel</text>
+<text x="48" y="205" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">temperatureRequirement: TemperatureLevel</text>
+<text x="48" y="227" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">baseIntervalDays: int</text>
+<text x="48" y="249" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">careNote: String</text>
+<rect x="530" y="80" width="450" height="230" rx="4" fill="#EAF1DD" stroke="#4F6228" stroke-width="2"/>
+<line x1="530" y1="116" x2="980" y2="116" stroke="#4F6228" stroke-width="1"/>
+<text x="755.0" y="106" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Plant</text>
+<text x="543" y="139" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">id: long</text>
+<text x="543" y="161" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">name: String</text>
+<text x="543" y="183" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">species: PlantSpecies</text>
+<text x="543" y="205" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">location: Location</text>
+<text x="543" y="227" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">lastWatered: LocalDate</text>
+<text x="543" y="249" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">photoPath (future UC11)</text>
+<rect x="1025" y="80" width="450" height="230" rx="4" fill="#EAF1DD" stroke="#4F6228" stroke-width="2"/>
+<line x1="1025" y1="116" x2="1475" y2="116" stroke="#4F6228" stroke-width="1"/>
+<text x="1250.0" y="106" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Location</text>
+<text x="1038" y="139" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">id: long</text>
+<text x="1038" y="161" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">name: String</text>
+<text x="1038" y="183" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">light: LightLevel</text>
+<text x="1038" y="205" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">temperature: TemperatureLevel</text>
+<text x="1038" y="227" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">humidity (future UC12)</text>
+<line x1="530" y1="195" x2="485" y2="195" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="505" y="178" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">n : 1</text>
+<line x1="980" y1="195" x2="1025" y2="195" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
+<text x="1002" y="178" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">n : 1</text>
+<text x="755" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#55654A" font-style="normal">Core rules · pure Java, independent of UI and storage</text>
+<rect x="40" y="375" width="450" height="160" rx="4" fill="#F6F8F2" stroke="#4F6228" stroke-width="2"/>
+<line x1="40" y1="411" x2="490" y2="411" stroke="#4F6228" stroke-width="1"/>
+<text x="265.0" y="401" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">WateringRule</text>
+<text x="53" y="434" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">nextWateringDate(plant)</text>
+<text x="53" y="456" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">isDue(plant, today)</text>
+<rect x="530" y="375" width="450" height="160" rx="4" fill="#F6F8F2" stroke="#4F6228" stroke-width="2"/>
+<line x1="530" y1="411" x2="980" y2="411" stroke="#4F6228" stroke-width="1"/>
+<text x="755.0" y="401" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">LightAssessment</text>
+<text x="543" y="434" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">assess(species, location)</text>
+<text x="543" y="456" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">returns Assessment</text>
+<rect x="1020" y="375" width="450" height="160" rx="4" fill="#F6F8F2" stroke="#4F6228" stroke-width="2"/>
+<line x1="1020" y1="411" x2="1470" y2="411" stroke="#4F6228" stroke-width="1"/>
+<text x="1245.0" y="401" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">TemperatureAssessment</text>
+<text x="1033" y="434" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">assess(species, location)</text>
+<text x="1033" y="456" text-anchor="start" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#263323" font-style="normal">returns Assessment</text>
+<text x="755" y="595" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#55654A" font-style="normal">Enums and result type</text>
+<rect x="30" y="620" width="340" height="190" rx="4" fill="#FFFFFF" stroke="#4F6228" stroke-width="2"/>
+<line x1="30" y1="656" x2="370" y2="656" stroke="#4F6228" stroke-width="1"/>
+<text x="200.0" y="646" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">LightLevel</text>
+<text x="43" y="679" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">SHADE · PARTIAL_SHADE</text>
+<text x="43" y="701" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">BRIGHT · DIRECT_SUN</text>
+<text x="43" y="723" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">level() · factor()</text>
+<rect x="390" y="620" width="340" height="190" rx="4" fill="#FFFFFF" stroke="#4F6228" stroke-width="2"/>
+<line x1="390" y1="656" x2="730" y2="656" stroke="#4F6228" stroke-width="1"/>
+<text x="560.0" y="646" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">TemperatureLevel</text>
+<text x="403" y="679" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">COOL · NORMAL · WARM</text>
+<text x="403" y="701" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">level() · factor()</text>
+<rect x="750" y="620" width="340" height="190" rx="4" fill="#FFFFFF" stroke="#4F6228" stroke-width="2"/>
+<line x1="750" y1="656" x2="1090" y2="656" stroke="#4F6228" stroke-width="1"/>
+<text x="920.0" y="646" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Suitability</text>
+<text x="763" y="679" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">SUITABLE · CONDITIONAL</text>
+<text x="763" y="701" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">NOT_SUITABLE</text>
+<text x="763" y="723" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">NOT_ASSESSED</text>
+<rect x="1110" y="620" width="370" height="190" rx="4" fill="#FFFFFF" stroke="#4F6228" stroke-width="2"/>
+<line x1="1110" y1="656" x2="1480" y2="656" stroke="#4F6228" stroke-width="1"/>
+<text x="1295.0" y="646" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">Assessment</text>
+<text x="1123" y="679" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">suitability: Suitability</text>
+<text x="1123" y="701" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">explanation: String</text>
+<text x="755" y="855" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#55654A" font-style="italic">Optional future extensions · not in exam core</text>
+<rect x="35" y="880" width="450" height="235" rx="4" fill="#F8FAF5" stroke="#4F6228" stroke-width="2" stroke-dasharray="10 7"/>
+<line x1="35" y1="916" x2="485" y2="916" stroke="#4F6228" stroke-width="1"/>
+<text x="260.0" y="906" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">WateringEvent · UC9</text>
+<text x="48" y="939" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">plantId: long</text>
+<text x="48" y="961" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">occurredAt: LocalDateTime</text>
+<text x="48" y="983" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">careType: CareType</text>
+<text x="48" y="1005" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">records a confirmed action</text>
+<rect x="530" y="880" width="450" height="235" rx="4" fill="#F8FAF5" stroke="#4F6228" stroke-width="2" stroke-dasharray="10 7"/>
+<line x1="530" y1="916" x2="980" y2="916" stroke="#4F6228" stroke-width="1"/>
+<text x="755.0" y="906" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">HumidityLevel · UC12</text>
+<text x="543" y="939" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">LOW · NORMAL · HIGH</text>
+<text x="543" y="961" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">factor()</text>
+<text x="543" y="983" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">can extend Location</text>
+<rect x="1025" y="880" width="450" height="235" rx="4" fill="#F8FAF5" stroke="#4F6228" stroke-width="2" stroke-dasharray="10 7"/>
+<line x1="1025" y1="916" x2="1475" y2="916" stroke="#4F6228" stroke-width="1"/>
+<text x="1250.0" y="906" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#263323" font-style="normal">HumidityAssessment · UC12</text>
+<text x="1038" y="939" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">assess(species, location)</text>
+<text x="1038" y="961" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">returns Assessment</text>
+<text x="1038" y="983" text-anchor="start" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#263323" font-style="normal">compares species and location</text>
+</svg>

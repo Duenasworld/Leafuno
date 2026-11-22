@@ -1,0 +1,17 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart TD
+  FX["JavaFX-Client<br/>Pflanzen verwalten<br/>Pflegeaktionen erfassen"]
+  Web["Responsive Web-App<br/>Pflanzen und Pflegebedarf ansehen<br/>Prüfungsumfang: nur lesend"]
+  Backend["Spring-Boot-Backend und REST-API<br/>Gemeinsame Dienste für Desktop und Web<br/>ab Produktstufe 1"]
+  App["Anwendungsdienste und Fachlogik<br/>Standortbewertungen · Giess- und Düngeplanung<br/>Pflegehistorie · spätere Diagnose"]
+  P1["Produktstufe 1<br/>Lokaler Betrieb im Heim-WLAN<br/>Standardhaushalt · JSON-Dateien"]
+  P7["Produktstufe 7<br/>Konten · Haushalte · Rollen<br/>Zentrale Datenbank"]
+  Later["Spätere Integrationen<br/>Pflanzenerkennung · KI<br/>Videos · Übersetzungen"]
+  FX -->|"lesen / ändern"| Backend
+  Web -->|"lesen"| Backend
+  Backend --> App
+  App --> P1
+  App --> P7
+  App --> Later
+  classDef box fill:#EAF1DD,stroke:#4F6228,color:#263323,stroke-width:2px
+  class FX,Web,Backend,App,P1,P7,Later box

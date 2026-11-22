@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+flowchart LR
+  Browser["Browser / Handy<br/>Webansicht im WLAN<br/>nur lesend"]
+  Static["Statische Webdateien<br/>index.html · app.js · style.css"]
+  Controller["PlantReadController<br/>GET-Endpunkte · JSON"]
+  FX["JavaFX-Oberfläche<br/>FxMainController"]
+  Service["InventoryService<br/>Fachlogik, Validierung<br/>liest / ändert Bestand"]
+  Domain["Fachmodell<br/>Plant · PlantSpecies · Location<br/>WateringRule · Assessments"]
+  Port["PlantRepository"]
+  JsonRepo["JsonPlantRepository"]
+  Files["Lokale JSON-Dateien<br/>arten.json · bestand.json"]
+  Browser -->|"Webseite laden"| Static
+  Browser -->|"HTTP GET"| Controller
+  Controller -->|"ruft lesend auf"| Service
+  FX -->|"Java-Aufruf"| Service
+  Service -->|"nutzt Fachregeln"| Domain
+  Service -->|"lesen / speichern"| Port
+  Port --> JsonRepo
+  JsonRepo --> Files
+  classDef box fill:#EAF1DD,stroke:#4F6228,color:#263323,stroke-width:2px
+  classDef client fill:#F6F8F2,stroke:#4F6228,color:#263323,stroke-width:2px
+  class Browser,Static,Controller,FX,Service,Domain,Port,JsonRepo,Files box

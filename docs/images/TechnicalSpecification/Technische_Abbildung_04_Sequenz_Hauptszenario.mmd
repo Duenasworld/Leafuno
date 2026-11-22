@@ -1,0 +1,34 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+sequenceDiagram
+  actor User as Nutzende
+  participant FX as FxMainController
+  participant S as InventoryService
+  participant D as Domain-Regeln
+  participant R as JsonPlantRepository
+  participant API as PlantReadController
+  participant W as Browser / app.js
+  User->>FX: Pflanzenexemplar erfassen; Art aus lokalem Katalog wählen
+  FX->>S: createPlant(input)
+  S->>D: Eingaben validieren und Bewertungen berechnen
+  D-->>S: Assessment und Fälligkeit
+  S->>R: save(plant)
+  R-->>S: Speichern erfolgreich
+  S-->>FX: PlantDto und Status
+  FX-->>User: Übersicht anzeigen
+  User->>W: «Heute giessen» öffnen
+  W->>API: GET /api/haushalte/standard/giessen/heute
+  API->>S: getTodayWateringHints()
+  S->>D: Fälligkeit und Bewertungen berechnen
+  D-->>S: Assessment und Fälligkeit
+  S-->>API: WateringHintDto-Liste
+  API-->>W: 200 und JSON-Antwort
+  User->>FX: «Gegossen» auswählen
+  FX->>S: confirmWatering(plantId, today)
+  S->>R: Giessdatum aktualisieren und Bestand speichern
+  R-->>S: Speichern erfolgreich
+  S-->>FX: aktualisierter PlantDto
+  User->>W: Webansicht neu laden
+  W->>API: GET /api/haushalte/standard/giessen/heute
+  API->>S: getTodayWateringHints()
+  S-->>API: aktualisierte WateringHintDto-Liste aus dem geladenen Bestand
+  API-->>W: aktualisierte JSON-Antwort

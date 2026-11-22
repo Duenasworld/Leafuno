@@ -1,0 +1,79 @@
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#EAF1DD","primaryBorderColor":"#4F6228","primaryTextColor":"#263323","lineColor":"#4F6228"}}}%%
+classDiagram
+  class PlantSpecies {
+    +String name
+    +String botanicalName
+    +LightLevel lightRequirement
+    +TemperatureLevel temperatureRequirement
+    +int baseIntervalDays
+    +String careNote
+  }
+  class Plant {
+    +long id
+    +String name
+    +PlantSpecies species
+    +Location location
+    +LocalDate lastWatered
+    +String photoPath
+  }
+  class Location {
+    +long id
+    +String name
+    +LightLevel light
+    +TemperatureLevel temperature
+    +HumidityLevel humidity
+  }
+  class WateringRule {
+    +nextWateringDate(plant)
+    +isDue(plant, today)
+  }
+  class LightAssessment {
+    +assess(species, location) Assessment
+  }
+  class TemperatureAssessment {
+    +assess(species, location) Assessment
+  }
+  class LightLevel {
+    <<enumeration>>
+    SHADE
+    PARTIAL_SHADE
+    BRIGHT
+    DIRECT_SUN
+  }
+  class TemperatureLevel {
+    <<enumeration>>
+    COOL
+    NORMAL
+    WARM
+  }
+  class Suitability {
+    <<enumeration>>
+    SUITABLE
+    CONDITIONAL
+    NOT_SUITABLE
+    NOT_ASSESSED
+  }
+  class Assessment {
+    +Suitability suitability
+    +String explanation
+  }
+  class WateringEvent {
+    +long plantId
+    +LocalDateTime occurredAt
+    +CareType careType
+  }
+  class HumidityLevel {
+    <<enumeration>>
+    LOW
+    NORMAL
+    HIGH
+  }
+  class HumidityAssessment {
+    +assess(species, location) Assessment
+  }
+  Plant "0..*" --> "1" PlantSpecies
+  Plant "0..*" --> "1" Location
+  LightAssessment ..> Assessment
+  TemperatureAssessment ..> Assessment
+  WateringEvent ..> Plant
+  HumidityAssessment ..> Assessment
