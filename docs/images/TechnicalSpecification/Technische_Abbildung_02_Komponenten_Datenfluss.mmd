@@ -8,7 +8,7 @@ flowchart LR
   Domain["Fachmodell<br/>Plant · PlantSpecies · Location<br/>WateringRule · Assessments"]
   Port["PlantRepository"]
   JsonRepo["JsonPlantRepository"]
-  Files["Lokale JSON-Dateien<br/>arten.json · bestand.json"]
+  Files["JSON-Dateien (Beispiele)<br/>species.json · inventory.json"]
   Browser -->|"Webseite laden"| Static
   Browser -->|"HTTP GET"| Controller
   Controller -->|"ruft lesend auf"| Service

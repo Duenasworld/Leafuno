@@ -1,6 +1,5 @@
 package com.duenasworld.leafuno.app;
 
-import com.duenasworld.leafuno.LeafunoApplication;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,7 +28,7 @@ public class FxApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/view/fx/plant-view.fxml"));
+                getClass().getResource("/fxml/plant-view.fxml"));
         loader.setControllerFactory(springContext::getBean);
         Scene scene = new Scene(loader.load(), 400, 300);
         stage.setScene(scene);

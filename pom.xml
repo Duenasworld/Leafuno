@@ -80,7 +80,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.duenasworld.leafuno.LeafunoApplication</mainClass>
+                            <mainClass>com.duenasworld.leafuno.app.LeafunoApplication</mainClass>
                             <options>
                                 <option>--enable-native-access=javafx.graphics</option>
                             </options>

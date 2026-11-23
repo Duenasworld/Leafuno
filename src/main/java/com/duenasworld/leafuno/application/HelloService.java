@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloService {
 
-    public String gruesse() {
+    public String greet() {
         return "Leafuno läuft! 🌱 (Gruss aus Spring)";
     }
 }

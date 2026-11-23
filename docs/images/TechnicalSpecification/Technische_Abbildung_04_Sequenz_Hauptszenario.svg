@@ -42,7 +42,7 @@
 <rect x="55" y="780" width="1690" height="50" rx="10" fill="#F6F8F2" stroke="#4F6228" stroke-width="2"/>
 <text x="900" y="812" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#55654A" font-style="normal">2 · Pflanzen am Handy ansehen · Webzugriff nur lesend</text>
 <line x1="1555" y1="860" x2="1305" y2="860" stroke="#4F6228" stroke-width="2" marker-end="url(#a)"/>
-<text x="1430.0" y="851" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#55654A" font-style="normal">GET /api/haushalte/standard/giessen/heute</text>
+<text x="1430.0" y="839" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#55654A" font-style="normal">Beispiel-GET /api/households/standard/watering/today</text>
 <line x1="1305" y1="920" x2="575" y2="920" stroke="#4F6228" stroke-width="2" marker-end="url(#a)"/>
 <text x="940.0" y="911" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">getTodayWateringHints()</text>
 <line x1="575" y1="980" x2="815" y2="980" stroke="#4F6228" stroke-width="2" marker-end="url(#a)"/>
@@ -72,10 +72,11 @@
 <line x1="335" y1="1720" x2="100" y2="1720" stroke="#4F6228" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#a)"/>
 <text x="217.5" y="1711" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">Webansicht neu laden</text>
 <line x1="1555" y1="1780" x2="1305" y2="1780" stroke="#4F6228" stroke-width="2" marker-end="url(#a)"/>
-<text x="1430.0" y="1771" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#55654A" font-style="normal">GET /api/haushalte/standard/giessen/heute</text>
+<text x="1430.0" y="1759" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#55654A" font-style="normal">Beispiel-GET /api/households/standard/watering/today</text>
 <line x1="1305" y1="1840" x2="575" y2="1840" stroke="#4F6228" stroke-width="2" marker-end="url(#a)"/>
 <text x="940.0" y="1831" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">aktuellen Bestand lesen</text>
 <line x1="575" y1="1900" x2="1555" y2="1900" stroke="#4F6228" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#a)"/>
 <text x="1065.0" y="1891" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">aktualisierte Fälligkeit als JSON</text>
 <text x="900" y="1980" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#55654A" font-style="normal">Beim Web-Lesezugriff liefert InventoryService den geladenen Bestand; gespeichert wird nach bestätigter Änderung.</text>
 </svg>
+

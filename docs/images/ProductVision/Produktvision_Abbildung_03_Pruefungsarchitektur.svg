@@ -22,8 +22,8 @@
 <text x="1455.0" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">PlantRepository</text>
 <text x="1455.0" y="254" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">JsonPlantRepository</text>
 <rect x="1280" y="820" width="350" height="150" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
-<text x="1455.0" y="852" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#263323" font-style="normal">Lokale JSON-Dateien</text>
-<text x="1455.0" y="884" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">arten.json · bestand.json</text>
+<text x="1455.0" y="852" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#263323" font-style="normal">JSON-Dateien (Beispiele)</text>
+<text x="1455.0" y="884" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#263323" font-style="normal">species.json · inventory.json</text>
 <line x1="495" y1="280" x2="640" y2="425" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
 <text x="575" y="335" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#55654A" font-style="normal">direkter Java-Aufruf</text>
 <line x1="495" y1="660" x2="1230" y2="660" stroke="#4F6228" stroke-width="3" marker-end="url(#a)"/>
