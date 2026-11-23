@@ -24,6 +24,6 @@ public class FxMainController {
 
     @FXML
     public void initialize() {
-        welcomeLabel.setText(helloService.gruesse());
+        welcomeLabel.setText(helloService.greet());
     }
 }

@@ -16,7 +16,7 @@ sequenceDiagram
   S-->>FX: PlantDto und Status
   FX-->>User: Übersicht anzeigen
   User->>W: «Heute giessen» öffnen
-  W->>API: GET /api/haushalte/standard/giessen/heute
+  W->>API: Beispiel-GET /api/households/standard/watering/today
   API->>S: getTodayWateringHints()
   S->>D: Fälligkeit und Bewertungen berechnen
   D-->>S: Assessment und Fälligkeit
@@ -28,7 +28,8 @@ sequenceDiagram
   R-->>S: Speichern erfolgreich
   S-->>FX: aktualisierter PlantDto
   User->>W: Webansicht neu laden
-  W->>API: GET /api/haushalte/standard/giessen/heute
+  W->>API: Beispiel-GET /api/households/standard/watering/today
   API->>S: getTodayWateringHints()
   S-->>API: aktualisierte WateringHintDto-Liste aus dem geladenen Bestand
   API-->>W: aktualisierte JSON-Antwort
+

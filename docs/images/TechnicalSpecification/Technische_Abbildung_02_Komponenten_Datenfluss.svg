@@ -33,9 +33,9 @@
 <text x="985.0" y="834" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">PlantRepository</text>
 <text x="985.0" y="858" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#263323" font-style="normal">JsonPlantRepository</text>
 <rect x="1200" y="770" width="320" height="145" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
-<text x="1360.0" y="802" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">Lokale JSON-Dateien</text>
-<text x="1360.0" y="834" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">arten.json</text>
-<text x="1360.0" y="859" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">bestand.json</text>
+<text x="1360.0" y="802" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#263323" font-style="normal">JSON-Dateien (Beispiele)</text>
+<text x="1360.0" y="834" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">species.json</text>
+<text x="1360.0" y="859" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">inventory.json</text>
 <rect x="25" y="205" width="265" height="250" rx="15" fill="#EAF1DD" stroke="#4F6228" stroke-width="3"/>
 <text x="157.5" y="237" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#263323" font-style="normal">Browser / Handy</text>
 <text x="157.5" y="269" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#263323" font-style="normal">Webansicht im WLAN</text>

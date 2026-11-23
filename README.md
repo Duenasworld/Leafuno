@@ -6,6 +6,8 @@ Leafuno ist eine geplante Anwendung zur Pflege von Zimmerpflanzen. Sie soll Pfla
 
 Dieses Repository enthält das technische Grundgerüst für die geplante Anwendung und die CAS-OOP-Modularbeit. Die eigentlichen Pflanzenfunktionen sind noch nicht umgesetzt. Die JavaFX-Oberfläche zeigt derzeit eine Begrüssung des `HelloService`. Der Spring-Boot-Endpunkt `GET /` antwortet mit einer einfachen Statusmeldung.
 
+Diese README beschreibt den aktuellen Stand im Repository. Technische Namen in der TechSpec und in den Abbildungen sind Beispiele, sofern sie nicht ausdrücklich als verbindlich bezeichnet sind; für den tatsächlich implementierten Stand ist der Quellcode massgeblich.
+
 Die Projektübersicht beschreibt die langfristige Produktvision. Die technische Spezifikation grenzt davon den kleineren Prüfungsumfang ab. Für die Modularbeit sind Pflanzen- und Standortverwaltung, Licht- und Temperaturbewertungen, die Berechnung der Giessfälligkeit, lokale JSON-Dateien sowie eine lesende Webansicht vorgesehen. Eine Datenbank und externe Dienste gehören nicht zum Prüfungsumfang.
 
 ## Architektur des Grundgerüsts
@@ -28,33 +30,30 @@ LeafunoApplication.main()   Einstiegspunkt; startet JavaFX
 | `FxApplication` | Steuert den JavaFX-Lebenszyklus, startet und beendet Spring und lädt die FXML-Oberfläche. |
 | `FxMainController` | Verbindet die FXML-Oberfläche mit dem `HelloService`. |
 | `HelloService` | Beispiel-Service; gibt derzeit eine Begrüssung zurück. |
-| `WebLeseController` | Vorläufiger REST-Controller. `GET /` liefert momentan eine Statusmeldung; die lesenden Pflanzen-Endpunkte sind noch nicht umgesetzt. |
+| `PlantReadController` | Vorläufiger REST-Controller. `GET /` liefert momentan eine Statusmeldung; die lesenden Pflanzen-Endpunkte sind noch nicht umgesetzt. |
 | `JsonPlantRepository`, `JsonFileStore` | Vorbereitete Klassen für die JSON-Speicherung; die vollständigen Pflanzenabläufe sind noch nicht implementiert. |
 
 ### Projektstruktur
 
 ```text
 src/main/java/com/duenasworld/leafuno/
-├─ LeafunoApplication.java
-├─ app/                         JavaFX-Lebenszyklus
-├─ application/                 Anwendungsdienste
-├─ domain/                      Fachmodell, Regeln, Validierung, Ausnahmen
-├─ infrastructure/persistence/json/  JSON-Speicherung
-└─ presentation/
-   ├─ fx/                       JavaFX-Oberfläche
-   └─ web/                      Web-Controller, DTOs und Fehlerbehandlung
+├─ app/                         Einstiegspunkt und JavaFX-Lebenszyklus
+├─ application/                 gemeinsame Anwendungsdienste
+├─ infrastructure/
+│  ├─ web/                      HTTP-Zugang und Web-Controller
+│  └─ persistence/              JSON-Speicherung
+└─ presentation/fx/              JavaFX-Oberfläche
 
 src/main/resources/
-├─ data/plant-species-seed.json
-├─ static/                      HTML, CSS und JavaScript
-├─ view/fx/plant-view.fxml
-└─ application.properties
+├─ data/plant-species-seed.json  mitgelieferter Startkatalog
+├─ fxml/plant-view.fxml          JavaFX-Ansicht
+└─ static/                       HTML, CSS und JavaScript für den Browser
 
-docs/                           Projektunterlagen und Diagramme
+src/test/java/com/duenasworld/leafuno/app/
+└─ LeafunoApplicationTests.java
 ```
 
-Die Web-Controller-Klasse heisst im aktuellen Grundgerüst noch `WebLeseController`. In der technischen Zielstruktur ist der englische Name `PlantReadController` vorgesehen.
-
+Die Fachklassen und die eigentlichen Pflanzenabläufe sind noch nicht umgesetzt. Dafür werden beim Ausbau die Pakete `domain` und weitere Anwendungstests ergänzt. Der Web-Controller und die JSON-Klassen sind derzeit Platzhalter.
 ## Starten
 
 Voraussetzung ist die im `pom.xml` festgelegte Java-Version. Der Maven Wrapper ist enthalten; Maven muss nicht separat installiert werden.
@@ -87,7 +86,7 @@ Der aktuelle Endpunkt `/` liefert eine Statusmeldung und noch keine Pflanzenübe
 
 ## Dependency Injection
 
-Mit `@Service`, `@Component` oder `@RestController` annotierte Klassen werden von Spring verwaltet. Abhängigkeiten werden über den Konstruktor übergeben. Im Grundgerüst erhält `FxMainController` so den `HelloService`:
+Mit `@Service`, `@Component` oder `@RestController` annotierte Klassen werden von Spring verwaltet. Abhängigkeiten werden über den Konstruktor übergeben. Im Grundgerüst erhält `FxMainController` so den `HelloService`. Java-Bezeichner sind englisch; die sichtbare Begrüssung bleibt deutsch:
 
 ```java
 @Component
@@ -115,7 +114,4 @@ loader.setControllerFactory(springContext::getBean);
 
 ## Projektunterlagen
 
-- [Leafuno – Produktvision und Projektübersicht](docs/Pflanzen-App_Projektuebersicht-Vision.pdf)
-- [Leafuno – Technische Anforderungen](docs/Pflanzen-App_TechnischeAnforderungen.pdf)
-- [Diagramme zur Produktvision](docs/diagramme/Produktvision/README.md)
-- [Diagramme zum technischen Dokument](<docs/diagramme/Technisches Dokument/README_Diagrammdateien.md>)
+Alle aktuellen Projektunterlagen und Abbildungen findest du im [Ordner docs/](docs/).

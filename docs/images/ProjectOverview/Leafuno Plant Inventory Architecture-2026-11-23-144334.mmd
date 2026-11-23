@@ -1,0 +1,58 @@
+%% Leafuno – Komponenten und Datenfluss (Vorlage zu Technische Abbildung 2)
+%% Hinweis gemäss Namens- und Verbindlichkeitsregel: Alle Klassennamen und
+%% Dateinamen sind BEISPIELE. Massgeblich ist der implementierte Quellcode.
+
+graph TD
+    subgraph CLIENTS["Oberflächen"]
+        UI["JavaFX-Oberfläche<br/>FxMainController + dialog/<br/>schreibend (UC1–UC4)"]
+        BROWSER["Web-Browser<br/>index.html · css/style.css · js/app.js<br/>nur lesend (UC5)"]
+    end
+
+    subgraph WEBSCHICHT["Web-Zugriff (Infrastructure)"]
+        REST["PlantReadController<br/>REST nur GET<br/>/api/households/standard/…"]
+        ERR["WebErrorHandler<br/>wandelt Exceptions in<br/>HTTP-Status + ErrorDto<br/>(404 · 405 · 500)"]
+    end
+
+    subgraph APPLICATION["Anwendungsschicht"]
+        SVC["InventoryService<br/>Use-Cases koordinieren<br/>Validierung · Speichern zuerst"]
+        PORT["PlantRepository<br/>(Port / Interface)"]
+        DTO["DTO-Records (Beispiele)<br/>LocationDto · AssessmentDto · PlantDto<br/>WateringHintDto · ErrorDto<br/>Eingabe: PlantCreateInput · PlantUpdateInput · LocationInput"]
+    end
+
+    subgraph DOMAIN["Fachmodell (frameworkfrei)"]
+        MODEL["Fachobjekte (Beispiele)<br/>Plant · PlantSpecies · Location<br/>LightAssessment · TemperatureAssessment<br/>LightLevel · TemperatureLevel · Suitability"]
+        RULE["WateringRule<br/>Tage = Grundintervall × Lichtfaktor × Temperaturfaktor"]
+        EXC["Fachliche Exceptions<br/>ValidationException · ConflictException · NotFoundException"]
+    end
+
+    subgraph PERSISTENZ["Persistenz (Infrastructure)"]
+        REPO["JsonPlantRepository<br/>implementiert PlantRepository"]
+        STORE["JsonFileStore&lt;T&gt;<br/>sicheres Speichern:<br/>.tmp prüfen → .bak sichern → verschieben"]
+        SEED[("resources/data/<br/>plant-species-seed.json<br/>Startkatalog-Vorlage")]
+    end
+
+    FILES[("Benutzerordner ~/leafuno<br/>inventory.json · species.json<br/>(Dateinamen als Beispiel)")]
+
+    %% UI → Anwendung
+    UI -- "Eingabe-Records" --> SVC
+    SVC -- "Ausgabe-DTOs" --> UI
+
+    %% Browser → REST
+    BROWSER -- "HTTP GET" --> REST
+    REST -- "Ausgabe-DTOs als JSON" --> BROWSER
+    REST -. "Fehler delegiert" .-> ERR
+
+    %% Anwendung → Domain / Persistenz
+    SVC --> MODEL
+    SVC -- "Giessfälligkeit berechnen" --> RULE
+    SVC --> PORT
+    EXC -. "auf HTTP-Status gemappt" .-> ERR
+    EXC -. "in JavaFX als Alert" .-> UI
+
+    %% Persistenz
+    REPO -. "implementiert" .-> PORT
+    REPO --> STORE
+    STORE -- "lesen / schreiben" --> FILES
+    SEED -. "Kopie beim ersten Start" .-> FILES
+
+    classDef extern fill:none,stroke-dasharray:5 5

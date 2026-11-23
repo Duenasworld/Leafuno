@@ -21,3 +21,7 @@ Die Dateinamen folgen jetzt der Nummerierung im jeweiligen Word-Dokument. Jede A
 | Abbildung 5 | Technische_Abbildung_05_Fachmodell_Klassendiagramm | Fachmodell, Muss-Kern und Soll-Erweiterungen |
 
 PNG ist zum Einfügen in Word vorgesehen. SVG bewahrt die aktuelle visuelle Gestaltung und lässt sich als Vektorgrafik bearbeiten. MMD enthält eine editierbare Mermaid-Darstellung der Bausteine und Beziehungen; ihre automatische Anordnung kann beim Rendern vom SVG abweichen.
+
+## Namensregel für Abbildungen
+
+Erläuternde Texte in den Diagrammen sind deutsch; technische Codebegriffe, JSON-Beispiele und REST-Pfade sind englisch. Datei- und Pfadnamen in Abbildungen sind Beispiele, sofern sie nicht ausdrücklich als festgelegt bezeichnet sind. Die MMD-Datei ist die bearbeitbare Quelle. Nach Änderungen werden SVG und PNG gemeinsam daraus aktualisiert.
