@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+
+
+<!--<VBox alignment="CENTER" spacing="20"-->
+<!--      xmlns="http://javafx.com/javafx"-->
+<!--      xmlns:fx="http://javafx.com/fxml"-->
+<!--      fx:controller="com.duenasworld.leafuno.presentation.fx.FxMainController">-->
+<!--    <Label fx:id="welcomeLabel" text="Dies kommt aus der FXML-Datei 🌿"/>-->
+<!--</VBox>-->
+
+
+<VBox alignment="CENTER" spacing="12"
+      prefWidth="600" prefHeight="450"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.duenasworld.leafuno.presentation.fx.FxMainController">
+
+<Label text="Pflanzenarten im Katalog"/>
+<ListView fx:id="speciesListView" VBox.vgrow="ALWAYS"/>
+</VBox>
