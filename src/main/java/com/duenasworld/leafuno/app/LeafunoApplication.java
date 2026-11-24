@@ -1,7 +1,10 @@
 package com.duenasworld.leafuno.app;
 
+import com.duenasworld.leafuno.application.InventoryService;
 import javafx.application.Application;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /**
  * LeafunoApplication – der Türsteher Sie enthält nur die main-Methode, also den allerersten Punkt,
@@ -16,4 +19,14 @@ public class LeafunoApplication {
 		Application.launch(FxApplication.class, args);
 	}
 
+	@Bean
+    CommandLineRunner printPlantSpecies(InventoryService inventoryService) {
+		return args -> {
+			inventoryService.getAllPlantSpecies().forEach(species ->
+					System.out.println(
+							species.getName() + " (" + species.getBotanicalName() + ")"
+					)
+			);
+		};
+	}
 }

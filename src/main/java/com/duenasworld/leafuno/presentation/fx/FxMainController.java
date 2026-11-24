@@ -1,8 +1,8 @@
 package com.duenasworld.leafuno.presentation.fx;
 
-import com.duenasworld.leafuno.application.HelloService;
+import com.duenasworld.leafuno.application.InventoryService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,17 +13,36 @@ import org.springframework.stereotype.Component;
 @Component
 public class FxMainController {
 
-    private final HelloService helloService;
+//    private final HelloService helloService;
+//
+//    public FxMainController(HelloService helloService) {
+//        this.helloService = helloService;
+//    }
+//
+//    @FXML
+//    private Label welcomeLabel;
 
-    public FxMainController(HelloService helloService) {
-        this.helloService = helloService;
+//    @FXML
+//    public void initialize() {
+//        welcomeLabel.setText(helloService.greet());
+//    }
+
+    private final InventoryService inventoryService;
+
+    public FxMainController(InventoryService inventoryService) {
+        this.inventoryService = inventoryService;
     }
 
     @FXML
-    private Label welcomeLabel;
+    private ListView<String> speciesListView;
 
     @FXML
     public void initialize() {
-        welcomeLabel.setText(helloService.greet());
+        speciesListView.getItems().setAll(
+                inventoryService.getAllPlantSpecies().stream()
+                        .map(species -> species.getName()
+                                + " (" + species.getBotanicalName() + ")")
+                        .toList()
+        );
     }
 }
