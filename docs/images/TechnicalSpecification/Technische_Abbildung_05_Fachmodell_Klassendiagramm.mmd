@@ -12,7 +12,7 @@ classDiagram
     +long id
     +String name
     +PlantSpecies species
-    +Location location
+    +Location locationId
     +LocalDate lastWatered
     +String photoPath
   }
@@ -28,10 +28,10 @@ classDiagram
     +isDue(plant, today)
   }
   class LightAssessment {
-    +assess(species, location) Assessment
+    +assess(species, locationId) Assessment
   }
   class TemperatureAssessment {
-    +assess(species, location) Assessment
+    +assess(species, locationId) Assessment
   }
   class LightLevel {
     <<enumeration>>
@@ -69,7 +69,7 @@ classDiagram
     HIGH
   }
   class HumidityAssessment {
-    +assess(species, location) Assessment
+    +assess(species, locationId) Assessment
   }
   Plant "0..*" --> "1" PlantSpecies
   Plant "0..*" --> "1" Location
